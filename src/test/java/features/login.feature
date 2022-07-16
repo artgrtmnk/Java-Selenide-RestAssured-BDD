@@ -8,7 +8,7 @@ Feature: Login
     Then User sees invalid credentials message
 
     Examples:
-      | email           | password  |
-      | aaajf@pdosf.com | Password1 |
-      | cndvm@kofs.com  | Password2 |
-      | cndvm@kofs.org  | Password3 |
+      | email               | password                  |
+      | big@floppa.com      | caracul                   |
+      | horus@herecy.com    | grandpa_nurgle            |
+      | karen803@bench.com  | remembermethecomplanyname |
