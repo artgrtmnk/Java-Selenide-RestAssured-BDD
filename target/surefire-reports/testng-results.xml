@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="tests.BaseTest" duration-ms="26819" started-at="2022-06-10T17:56:29 GET" finished-at="2022-06-10T17:56:56 GET">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.BaseTest@5f9d02cb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Command line test" duration-ms="26819" started-at="2022-06-10T17:56:29 GET" finished-at="2022-06-10T17:56:56 GET">
+      <class name="tests.BaseTest">
+        <test-method status="PASS" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:tests.BaseTest@5f9d02cb]" name="setUpClass" is-config="true" duration-ms="295" started-at="2022-06-10T17:56:29 GET" finished-at="2022-06-10T17:56:29 GET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3ce53f6a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.BaseTest@5f9d02cb]" name="runScenario" duration-ms="12237" started-at="2022-06-10T17:56:29 GET" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-10T17:56:41 GET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Invalid sign in with user"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.BaseTest@5f9d02cb]" name="runScenario" duration-ms="6302" started-at="2022-06-10T17:56:41 GET" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-10T17:56:48 GET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Invalid sign in with user"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.BaseTest@5f9d02cb]" name="runScenario" duration-ms="7890" started-at="2022-06-10T17:56:48 GET" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-10T17:56:56 GET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Invalid sign in with user"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:tests.BaseTest@5f9d02cb]" name="tearDownClass" is-config="true" duration-ms="21" started-at="2022-06-10T17:56:56 GET" finished-at="2022-06-10T17:56:56 GET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.BaseTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- tests.BaseTest -->
+</testng-results>
