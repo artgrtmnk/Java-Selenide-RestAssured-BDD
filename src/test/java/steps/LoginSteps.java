@@ -1,7 +1,6 @@
-package stepDefinitions;
+package steps;
 
-import POs.LoginPage;
-import com.codeborne.selenide.Configuration;
+import pages.LoginPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
