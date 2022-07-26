@@ -10,11 +10,6 @@ public class LoginSteps {
     String errorMessage = "Invalid username and/or password.";
     LoginPage loginPage = new LoginPage();
 
-    @Before
-    public static void setup() {
-        // Configuration.baseUrl = "https://profile.oracle.com";
-    }
-
     @Given("User has opened Oracle Profile page")
     public void userOpensProfilePage() {
         loginPage.openPage();
