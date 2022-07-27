@@ -1,15 +1,13 @@
 package steps;
 
-import helpers.RestClient;
-import helpers.UserGenerator;
-import helpers.UserPojo;
 import io.cucumber.docstring.DocString;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import utils.UserGenerator;
+import utils.UserPojo;
+import utils.api_clients.RestClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +19,7 @@ public class ApiRestSteps {
 
     @Given("I set up a basic url as {string}")
     public void i_set_up_a_basic_url_as(String url) {
-        RestAssured.baseURI = url;
+        restClient.setURL(url);
     }
 
     @When("I send a Get user list request")
