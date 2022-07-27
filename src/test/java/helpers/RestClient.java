@@ -10,16 +10,16 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RestClient {
-    private static final String TOKEN = "594add4a6e80e6bfeb2b345424060aad3bba0d538628eeff491d774957ee834a";
+    private final String TOKEN = "594add4a6e80e6bfeb2b345424060aad3bba0d538628eeff491d774957ee834a";
 
-    private static final RequestSpecification REQ_SPEC =
+    private final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()
                     .setBaseUri("https://gorest.co.in/public/v2/users")
                     .addHeader("Authorization", "Bearer " + TOKEN)
                     .setContentType(ContentType.JSON)
                     .build();
 
-    private static int id;
+    private int id;
 
     public Response getUserList() {
         return given()

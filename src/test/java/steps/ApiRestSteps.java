@@ -14,15 +14,11 @@ import io.restassured.response.Response;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ApiRestSteps {
-    private static RestClient restClient;
+    private static RestClient restClient = new RestClient();;
     private static UserGenerator userGenerator = new UserGenerator();
     private static UserPojo user = userGenerator.generateUserData();;
     private Response response;
 
-    @Before
-    public static void setup() {
-        restClient = new RestClient();
-    }
     @Given("I set up a basic url as {string}")
     public void i_set_up_a_basic_url_as(String url) {
         RestAssured.baseURI = url;
