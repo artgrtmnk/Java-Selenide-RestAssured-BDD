@@ -9,11 +9,6 @@ public class LoginSteps {
     String errorMessage = "Invalid username and/or password.";
     LoginPage loginPage = new LoginPage();
 
-    @Given("User has opened Oracle Profile page")
-    public void userOpensProfilePage() {
-        loginPage.openPage();
-    }
-
     @When("User inputs {string} as email")
     public void userEntersUsername(String username) {
         loginPage.enterUserName(username);
