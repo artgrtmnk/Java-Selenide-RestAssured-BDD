@@ -17,7 +17,7 @@ public class LoginPage {
     }
 
     public void enterUserName(String username) {
-        this.userNameField.val(username);
+        this.userNameField.should(Condition.be(Condition.visible)).val(username);
     }
 
     public void enterPassword(String password) {

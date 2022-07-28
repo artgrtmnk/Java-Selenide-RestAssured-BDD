@@ -4,10 +4,12 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import utils.JsonFileReader;
 import utils.UserPojo;
 
 public abstract class BaseClient {
-    private final String TOKEN = "594add4a6e80e6bfeb2b345424060aad3bba0d538628eeff491d774957ee834a";
+    private final JsonFileReader jsonFileReader = new JsonFileReader();
+    private final String TOKEN = jsonFileReader.parseToken();
     protected RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()
                     .addHeader("Authorization", "Bearer " + TOKEN)
