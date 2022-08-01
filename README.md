@@ -1,5 +1,18 @@
 # Java-Selenide-RestAssured-BDD
 
+### About
+**Overview:** _Java UI and API with BDD testing framework sample._
+
+**Systems under test:**
+- UI: Oracle login application.
+- API: Gorest.co.in Rest and GraphQL application.
+
+**Technology stack:**
+- Basic: Java 8, Maven, TestNG
+- BDD: Cucumber
+- UI: Selenide
+- API: Rest Assured
+- Reporting: Allure
 
 ### Installation
 1. Install [Java 8](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
@@ -15,3 +28,9 @@
 1. You can run tests using BaseTest file in the `src/test/java/tests` folder.
 2. As well, you can do it using features files in the `src/test/java/features`.
 3. And you can also do it with command line with a single command `mvn test`.
+
+### After test
+- Framework creates allure reports, that located in `allure-results` folder.
+- To get the report in the HTML format, type `allure serve allure-results` into the terminal in the project's root folder.
+- For failed tests framework makes `screenshots`, that could be found in generated allure report in the `after` step hook.
+- **Note: Allure folder would be cleared within the next test run.**
