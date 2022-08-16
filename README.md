@@ -33,4 +33,7 @@
 - Framework creates allure reports, that located in `allure-results` folder.
 - To get the report in the HTML format, type `allure serve allure-results` into the terminal in the project's root folder.
 - For failed tests framework makes `screenshots`, that could be found in generated allure report in the `after` step hook.
+
+### Post scriptum
+**_Antipattern was used in this sample framework: Test scenarios from API feature files are running sequentially, just because that's a sample. Never do it in a real project. Each test scenario should be independent and all of the pre-conditions should be done within the Given steps!_**
 - **Note: Allure folder would be cleared within the next test run.**
