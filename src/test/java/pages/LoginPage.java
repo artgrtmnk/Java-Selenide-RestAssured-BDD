@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
-    public SelenideElement userNameField = $("#sso_username");
+    public SelenideElement userNameField = $("label[for='sso_username']");
     public SelenideElement passwordField = $("#ssopassword");
     public SelenideElement submitButton = $("#signin_button");
     public SelenideElement errorMessage = $("#errormsg");
