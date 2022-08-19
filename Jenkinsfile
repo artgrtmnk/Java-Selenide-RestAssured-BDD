@@ -4,8 +4,9 @@ pipeline{
         stage ('Passing token') {
                     steps {
                         script{
-                            def jsonFile = new File('${WORKSPACE}/token.json')
-                            jsonFile.text = jsonFile.text.replace('YOUR_TOKEN', params.token)
+                            def jsonFileString = readFile file: "${WORKSPACE}/token.json"
+                            jsonFileString = jsonFileString.replaceAll("YOUR_TOKEN", params.token)
+                            writeFile file: "${WORKSPACE}/token.json", text: jsonFileString
                         }
                     }
                 }
