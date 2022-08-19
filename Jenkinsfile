@@ -3,12 +3,9 @@ pipeline{
     stages {
         stage ('Build Stage') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                withMaven(maven: 'maven_3_8_6')
                 {
-                    withMaven(maven: 'maven_3_8_6')
-                    {
-                        sh 'mvn clean install -DskipTests'
-                    }
+                    sh 'mvn clean install -DskipTests'
                 }
             }
         }

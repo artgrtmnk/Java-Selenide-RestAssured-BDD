@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -14,10 +15,13 @@ public class LoginPage {
 
     public void openPage() {
         Selenide.open("https://profile.oracle.com/");
+        this.userNameField.shouldBe(visible);
+        this.passwordField.shouldBe(visible);
+        this.submitButton.shouldBe(visible);
     }
 
     public void enterUserName(String username) {
-        this.userNameField.should(Condition.be(Condition.visible)).val(username);
+        this.userNameField.val(username);
     }
 
     public void enterPassword(String password) {
