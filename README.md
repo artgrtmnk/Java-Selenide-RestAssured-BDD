@@ -28,6 +28,7 @@
 1. You can run tests using BaseTest file in the `src/test/java/tests` folder.
 2. As well, you can do it using features files in the `src/test/java/features`.
 3. And you can also do it with command line with a single command `mvn test`.
+4. Finally, you can start tests using tags. List of available tags: @ui, @api, @rest, @gql. You need to specify one of these tags in the command `mvn clean test -D"cucumber.filter.tags=@***"`. Instead of `***` paste chosen tag.
 
 ### After test [locally]
 - Framework creates allure reports, that located in `allure-results` folder.
@@ -40,11 +41,12 @@
 2. Install default plugins in Jenkins.
 3. As well there is a list of plugins that you need to install additionally via Jenkins > Manage Jenkins > Manage Plugins: Allure Jenkins Plugin, Git Plugin, GitHub Branch Source Plugin, GitHub plugin, HTML Publisher plugin, Maven Integration plugin, Pipeline Maven Integration Plugin, Pipeline, Pipeline: GitHub Groovy Libraries.
 4. Create a new Job with `Pypeline` type.
-5.1 Enable `GitHub Project` checkbox and paste my project's git url
-5.2 Enable `This project is parameterised` checkbox and add a String parameter named `token`, it is important!
-5.3 Scroll down to the Pipeline section and choose `Pipeline script from SCM`, then choose Git as an option.
-5.4 Paste my project's url to the repo's url field: `https://github.com/artgrtmnk/Java-Selenide-RestAssured-BDD/` and specify the branch name a bit lower as: `*/main`.
-5.5 Apply and Save the pipeline.
+5. Job configuration:
+- Enable `GitHub Project` checkbox and paste my project's git url
+- Enable `This project is parameterised` checkbox and add a String parameter named `token`, it is important!
+- Scroll down to the Pipeline section and choose `Pipeline script from SCM`, then choose Git as an option.
+- Paste my project's url to the repo's url field: `https://github.com/artgrtmnk/Java-Selenide-RestAssured-BDD/` and specify the branch name a bit lower as: `*/main`.
+- Apply and Save the pipeline.
 6. Click on `Build with Parameters` in the left nav menu.
 7. Paste your GoRest token into the token var field.
 8. Click build
