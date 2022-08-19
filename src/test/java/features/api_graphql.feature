@@ -1,3 +1,5 @@
+@api
+@gql
 Feature: GoRest GraphQL API
 
   Background:
