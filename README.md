@@ -24,16 +24,36 @@
 7. In the project's root folder, paste your token into `token.json` file as a value for the `token` key.
 8. Optionally: You can install `Cucumber` plugIn for Idea. It allows you to start tests separately from IDE.
 
-### Running tests
+### Running tests [locally]
 1. You can run tests using BaseTest file in the `src/test/java/tests` folder.
 2. As well, you can do it using features files in the `src/test/java/features`.
 3. And you can also do it with command line with a single command `mvn test`.
 
-### After test
+### After test [locally]
 - Framework creates allure reports, that located in `allure-results` folder.
 - To get the report in the HTML format, type `allure serve allure-results` into the terminal in the project's root folder.
 - For failed tests framework makes `screenshots`, that could be found in generated allure report in the `after` step hook.
 - **Note: Allure folder would be cleared within the next test run.**
+
+### Running tests [Jenkins]
+1. Install [Jenkins](https://www.jenkins.io).
+2. Install default plugins in Jenkins.
+3. As well there is a list of plugins that you need to install additionally via Jenkins > Manage Jenkins > Manage Plugins: Allure Jenkins Plugin, Git Plugin, GitHub Branch Source Plugin, GitHub plugin, HTML Publisher plugin, Maven Integration plugin, Pipeline Maven Integration Plugin, Pipeline, Pipeline: GitHub Groovy Libraries.
+4. Create a new Job with `Pypeline` type.
+5.1 Enable `GitHub Project` checkbox and paste my project's git url
+5.2 Enable `This project is parameterised` checkbox and add a String parameter named `token`, it is important!
+5.3 Scroll down to the Pipeline section and choose `Pipeline script from SCM`, then choose Git as an option.
+5.4 Paste my project's url to the repo's url field: `https://github.com/artgrtmnk/Java-Selenide-RestAssured-BDD/` and specify the branch name a bit lower as: `*/main`.
+5.5 Apply and Save the pipeline.
+6. Click on `Build with Parameters` in the left nav menu.
+7. Paste your GoRest token into the token var field.
+8. Click build
+
+### After test [Jenkins]
+- Allure report would be generated automatically. The only thing you need to do is to click on `Allure Report` button in the left nav menu.
+- **Note: Allure folder would be cleared within the next test run.**
+
+![Successful pipeline from Jenkins](Successful_Jenkins_Pipeline.png)
 
 ### Post scriptum
 **_Antipattern was used in this sample framework: Test scenarios from API feature files are running sequentially, just because that's a sample. Never do it in a real project. Each test scenario should be independent and all of the pre-conditions should be done within the Given steps!_**
