@@ -3,26 +3,25 @@ pipeline{
     stages {
         stage ('Passing token') {
                     steps {
-                        def jsonFile = new File('${WORKSPACE}/token.json')
-                        jsonFile.text = jsonFile.text.replace('YOUR_TOKEN', params.token)
+                        script{
+                            def jsonFile = new File('${WORKSPACE}/token.json')
+                            jsonFile.text = jsonFile.text.replace('YOUR_TOKEN', params.token)
+                        }
                     }
                 }
         stage ('Build Stage') {
             steps {
-                withMaven(maven: 'maven_3_8_6')
-                {
+                withMaven(maven: 'maven_3_8_6') {
                     sh 'mvn clean install -DskipTests'
                 }
             }
         }
         stage ('Test Stage') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
-                {
-                    withMaven(maven: 'maven_3_8_6')
-                        {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    withMaven(maven: 'maven_3_8_6') {
                             sh 'mvn test'
-                        }
+                    }
                 }
             }
         }
