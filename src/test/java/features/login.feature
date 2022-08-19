@@ -1,3 +1,4 @@
+@ui
 Feature: Login
 
   Scenario Outline: Invalid sign in with user

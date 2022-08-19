@@ -17,15 +17,24 @@ pipeline{
                  }
              }
          }
-         stage ('Test Stage') {
+         stage ('API Testing Stage') {
              steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                      withMaven(maven: 'maven_3_8_6') {
-                             sh 'mvn test'
+                             sh 'mvn clean test -D"cucumber.filter.tags=@api"'
                      }
                  }
              }
          }
+         stage ('UI Testing Stage') {
+                      steps {
+                          catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                              withMaven(maven: 'maven_3_8_6') {
+                                      sh 'mvn clean test -D"cucumber.filter.tags=@ui"'
+                              }
+                          }
+                      }
+                  }
          stage ('Allure report Stage') {
              steps {
                  allure includeProperties: false,

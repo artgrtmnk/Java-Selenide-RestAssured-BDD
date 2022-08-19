@@ -1,3 +1,5 @@
+@api
+@rest
 Feature: GoRest Rest API
 
   Background:
