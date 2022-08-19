@@ -16,13 +16,10 @@ public class LoginPage {
 
     public void openPage() {
         Selenide.open("https://profile.oracle.com/");
-        //this.userNameField.shouldBe(visible);
-        this.passwordField.shouldBe(visible);
-        this.submitButton.shouldBe(visible);
     }
 
     public void enterUserName(String username) {
-        this.userNameField.val(username);
+        this.userNameField.shouldBe(visible).val(username);
     }
 
     public void enterPassword(String password) {
