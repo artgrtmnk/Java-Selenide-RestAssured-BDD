@@ -8,7 +8,7 @@ pipeline{
                 }
             }
         }
-    stage ('Test Stage') {
+        stage ('Test Stage') {
             steps {
                 withMaven(maven: 'maven_3_8_6') {
                     sh 'mvn test'
@@ -20,6 +20,14 @@ pipeline{
                 cucumber buildStatus: "UNSTABLE",
                     fileIncludePattern: "**/cucumber.json",
                     jsonReportDirectory: 'allure-report'
+            }
+        }
+        stage ('Allure report') {
+            steps {
+                allure includeProperties:
+                    false,
+                    jdk: '',
+                    results: [[path: 'allure-report']]
             }
         }
     }
