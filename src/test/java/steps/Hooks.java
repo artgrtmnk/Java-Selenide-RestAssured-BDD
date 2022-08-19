@@ -15,17 +15,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class Hooks {
-    @BeforeAll
-    public static void before_or_after_all() {
-        try {
-            File allureDir = new File("allure-results");
-            FileUtils.cleanDirectory(allureDir);
-            System.out.println("Allure results dir was cleaned.");
-        } catch (IOException e) {
-            System.err.println("Something went wrong with cleaning allure dir.");
-            throw new RuntimeException(e);
-        }
-    }
 
     @After
     public void after_test(Scenario scenario) {
