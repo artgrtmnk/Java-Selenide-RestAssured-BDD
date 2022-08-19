@@ -10,9 +10,13 @@ pipeline{
         }
         stage ('Test Stage') {
             steps {
-                withMaven(maven: 'maven_3_8_6') {
-                    sh 'mvn test'
-                }
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                        {
+                            withMaven(maven: 'maven_3_8_6')
+                            {
+                                sh 'mvn test'
+                            }
+                        }
             }
         }
         stage ('Cucumber Reports') {
