@@ -1,40 +1,34 @@
 pipeline{
     agent any
     stages {
-        stage ('Compile Stage') {
+        stage ('Build Stage') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
                 {
-                    withMaven(maven: 'maven_3_8_6') {
-                                        sh 'mvn clean install'
-                                    }
+                    withMaven(maven: 'maven_3_8_6')
+                    {
+                        sh 'mvn clean install'
+                    }
                 }
             }
         }
         stage ('Test Stage') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                {
+                    withMaven(maven: 'maven_3_8_6')
                         {
-                            withMaven(maven: 'maven_3_8_6')
-                            {
-                                sh 'mvn test'
-                            }
+                            sh 'mvn test'
                         }
+                }
             }
         }
-        stage ('Cucumber Reports') {
-            steps {
-                cucumber buildStatus: "UNSTABLE",
-                    fileIncludePattern: "**/cucumber.json",
-                    jsonReportDirectory: 'allure-report'
-            }
-        }
-        stage ('Allure report') {
+        stage ('Allure report Stage') {
             steps {
                 allure includeProperties:
                     false,
                     jdk: '',
-                    results: [[path: 'allure-report']]
+                    results: [[path: 'allure-results']]
             }
         }
     }
