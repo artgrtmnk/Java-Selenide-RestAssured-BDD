@@ -40,16 +40,17 @@
 1. Install [Jenkins](https://www.jenkins.io).
 2. Install default plugins in Jenkins.
 3. As well there is a list of plugins that you need to install additionally via Jenkins > Manage Jenkins > Manage Plugins: Allure Jenkins Plugin, Git Plugin, GitHub Branch Source Plugin, GitHub plugin, HTML Publisher plugin, Maven Integration plugin, Pipeline Maven Integration Plugin, Pipeline, Pipeline: GitHub Groovy Libraries.
-4. Create a new Job with `Pypeline` type.
-5. Job configuration:
+4. In Jenkins > Manage Jenkins > Global Tool Configuration click on `Maven installations...` button in `Maven` section and add name `maven`, choose last version. Then apply and save.
+5. Create a new Job with `Pypeline` type.
+6. Job configuration:
 - Enable `GitHub Project` checkbox and paste my project's git url
 - Enable `This project is parameterised` checkbox and add a String parameter named `token`, it is important!
 - Scroll down to the Pipeline section and choose `Pipeline script from SCM`, then choose Git as an option.
 - Paste my project's url to the repo's url field: `https://github.com/artgrtmnk/Java-Selenide-RestAssured-BDD/` and specify the branch name a bit lower as: `*/main`.
 - Apply and Save the pipeline.
-6. Click on `Build with Parameters` in the left nav menu.
-7. Paste your GoRest token into the token var field.
-8. Click build
+7. Click on `Build with Parameters` in the left nav menu.
+8. Paste your GoRest token into the token var field.
+9. Click `Build` button
 
 ### After test [Jenkins]
 - Allure report would be generated automatically. The only thing you need to do is to click on `Allure Report` button in the left nav menu.
