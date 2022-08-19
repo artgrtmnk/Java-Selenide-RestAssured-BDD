@@ -12,7 +12,7 @@ pipeline{
          }
          stage ('Build Stage') {
              steps {
-                 withMaven(maven: 'maven_3_8_6') {
+                 withMaven(maven: 'maven') {
                      sh 'mvn clean install -DskipTests'
                  }
              }
@@ -20,7 +20,7 @@ pipeline{
          stage ('Testing Stage') {
              steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                     withMaven(maven: 'maven_3_8_6') {
+                     withMaven(maven: 'maven') {
                              sh 'mvn clean test'
                      }
                  }
