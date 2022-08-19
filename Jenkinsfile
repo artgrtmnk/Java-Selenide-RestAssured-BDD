@@ -1,6 +1,12 @@
 pipeline{
     agent any
     stages {
+        stage ('Passing token') {
+                    steps {
+                        def jsonFile = new File('${WORKSPACE}/token.json')
+                        jsonFile.text = jsonFile.text.replace('YOUR_TOKEN', params.token)
+                    }
+                }
         stage ('Build Stage') {
             steps {
                 withMaven(maven: 'maven_3_8_6')
